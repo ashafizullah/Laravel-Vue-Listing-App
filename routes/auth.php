@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticateController;
+use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,6 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::post('/logout', [AuthenticateController::class, 'destroy'])->name('logout');
+
+    Route::get('/email/verify', [EmailVerificationController::class, 'notice'])->middleware('auth')->name('verification.notice');
 });
