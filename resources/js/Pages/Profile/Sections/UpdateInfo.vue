@@ -1,5 +1,5 @@
 <script setup>
-import { router, useForm } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 import Container from '../../../Components/Container.vue';
 import InputField from '../../../Components/InputField.vue';
 import PrimaryBtn from '../../../Components/PrimaryBtn.vue';
@@ -18,7 +18,7 @@ const form = useForm({
 })
 
 const resendEmail = (e) => {
-    router.post(route('verification.send'), {}, {
+    form.post(route('verification.send'), {}, {
         onStart: () => e.target.disabled = true,
         onFinish: () => e.target.disabled = false,
     })
