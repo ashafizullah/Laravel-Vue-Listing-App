@@ -2,7 +2,7 @@
 import Card from '../Components/Card.vue';
 import PaginationLinks from '../Components/PaginationLinks.vue';
 import InputField from '../Components/InputField.vue';
-import { router, useForm } from '@inertiajs/vue3';
+import { router, useForm, Link } from '@inertiajs/vue3';
 
 const params = route().params;
 
@@ -16,7 +16,7 @@ const form = useForm({
 });
 
 const search = () => {
-    router.get(route('home'), { search: form.search, user_id: params.user_id });
+    router.get(route('home'), { search: form.search, user_id: params.user_id, tag: params.tag });
 }
 </script>
 
